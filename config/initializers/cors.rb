@@ -7,10 +7,11 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
+    origins '*' 
 
     resource '*',
       headers: :any,
+      expose: :authorization, # <- Add this line to expose our auth header
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end
