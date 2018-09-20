@@ -64,7 +64,7 @@ describe "Apartment API" do
   it "can update single entry" do
     apartment_params = {
       apartment: {
-        address_1:"125 J st", city:"Los Angeles", postal_code:12345, state:"CA", country:"USA", manager_name:"Bob Dylan", manager_phone:6198089038, manager_time: "MON-FRI 9:00AM - 5:00PM"
+        address_1:"125 J st", city:"Los Angeles", postal_code:12345, state:"CA", country:"CAN", manager_name:"Bob Dylan", manager_phone:6198089038, manager_time: "MON-FRI 9:00AM - 5:00PM"
       }
     }
 
@@ -75,6 +75,7 @@ describe "Apartment API" do
     json = JSON.parse(response.body)
     # puts json
     expect(json['city']).to eq "Los Angeles"
+    expect(json['country']).to eq "CAN"
 
   end
 
